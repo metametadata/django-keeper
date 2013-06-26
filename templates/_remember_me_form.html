@@ -1,0 +1,33 @@
+{% csrf_token %}
+
+<legend>{{ legend }}</legend>
+
+<span class="text-error"><small>{{ form.non_field_errors }}</small></span>
+
+<fieldset>
+    {% for field in form %}
+    <div class="control-group {% if field.errors %}error{% endif %}">
+        <label>{{ field.label }}</label>
+
+        <div class="controls">{{ field }}</div>
+
+        {% if field.errors %}
+        <label class="help-inline">{{ field.errors }}</label>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+                <input type="checkbox" name="remember_me"> Remember me
+            </label>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <input type="submit" value="{{ submit_button }}" class="btn"/>
+        </div>
+    </div>
+</fieldset>

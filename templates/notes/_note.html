@@ -1,0 +1,13 @@
+{% verbatim %}
+<script id="note-template" type="text/x-handlebars-template">    
+    <input class="title" name="title" type="text" value="{{title}}" placeholder="Title..." autocomplete="off" {{#unless title}}style="display: none;"{{/unless}}>
+    <textarea class="content" name="content" rows="1" placeholder="Type note..." autocomplete="off">{{content}}</textarea>
+
+    <div class="note-footer-read">
+        <small class="muted">{{date_from_epoch created}}</small>
+    </div>
+    <div class="note-footer-edit">
+        <button class="done btn btn-primary">Done</button>
+    </div>
+</script>
+{% endverbatim %}

@@ -1,0 +1,79 @@
+body {
+    background-color: whitesmoke;
+    padding-top: 40px;
+}
+
+.note {
+    margin: 20px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+    .note:hover {
+        border-left: 1px solid blue;
+    }
+
+.new-note {
+    border: 1px dashed lightgray;
+    display: none; /* for preventing FUBC because div will be resized */
+}
+
+.note-edited {
+    border: 1px solid blue;
+    box-shadow: 3px 3px 1px lightgray;
+}
+
+.title {
+    font-size: 110% !important;
+    font-weight: bold;
+}
+
+    .new-note .title {
+        display: none;
+    }
+
+    .note-edited .title {
+        display: block;
+    }
+
+.note input,
+.note textarea {
+    outline: none;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.note-footer-read {
+    padding: 5px;
+    border-top: 1px dashed lightgray;
+}
+
+    .note-edited .note-footer-read {
+        display: none;
+    }
+
+.note-footer-edit {
+    padding: 5px;
+    display: none;
+}
+
+    .note-edited .note-footer-edit {
+        display: block;
+    }
+
+#no-search-results {
+    display: none;
+    text-align: center;
+    color: gray;
+}
+
+#note-toolbar {
+    border: 1px solid lightgray;
+    position: absolute;
+    padding: 5px;
+    background: white;
+    display: none;
+}

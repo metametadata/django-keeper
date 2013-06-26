@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block header_content %}
+<div class="page-header">
+    <h1>
+        Keeper
+        <small>clone of Google Keep powered by Django</small>
+    </h1>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="row-fluid">
+    <div class="row-fluid">
+        <div class="span8 offset2 hero-unit">
+            {% if user.is_authenticated %}
+
+            <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+
+            <a href="{% url 'notes:list' %}" class="btn">View Notes</a>
+            <br/>
+            <a href="{% url 'logout' %}" class="btn">Logout</a>
+
+            {% else %}
+
+            <div class="row-fluid">
+                <div class="span6">
+                    <form action="{% url 'login' %}" method="POST" class="form-inline">
+                        {% include "_remember_me_form.html" with form=login_form legend="Login" submit_button="Login" %}
+                    </form>
+                </div>
+
+                <div class="span6">
+                    <form action="{% url 'register' %}" method="POST" class="form-inline">
+                        {% include "_remember_me_form.html" with form=register_form legend="Register" submit_button="Submit" %}
+                    </form>
+                </div>
+            </div>
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

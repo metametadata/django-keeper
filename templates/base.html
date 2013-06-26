@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Clone of Google Keep powered by Django.">
+
+        <title>{% block page_title %}{% endblock %}Keeper</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}">
+        <link rel='icon' type='image/x-icon' href="{% static "img/favicon.ico" %}" />
+        <link rel='shortcut icon' type='image/x-icon' href="{% static "img/favicon.ico" %}" />
+
+        {% block extra_head %}{% endblock %}
+    </head>
+
+    <body>
+        {% block header_content %}{% endblock %}
+
+        <div class="container-fluid">
+            {% block page_content %}{% endblock %}
+        </div>
+
+        {% block extra %}{% endblock %}
+    </body>
+</html>

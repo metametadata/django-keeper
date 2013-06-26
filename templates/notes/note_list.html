@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}Notes | {% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/notes/main.css' %}">
+
+<script data-main="{% static "js/notes.js" %}" src="{% static "js/vendor/require.js" %}"></script>
+{% endblock %}
+
+{% block header_content %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand hidden-phone" href="{% url 'home' %}">Keeper</a>
+            <a class="brand visible-phone">K</a>
+
+            <form id="search-form" class="navbar-form pull-left">
+                <input type="text" name="q" class="span2" autocomplete="off">
+
+                <button type="submit" class="btn btn-primary"><i class="icon-search icon-white"></i></button>
+            </form>
+
+            <div class="pull-right">
+                {% if user.is_authenticated %}
+                Welcome, {{ user.username }}.
+                <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_content %}
+
+<div class="row-fluid">
+    <div id="notes" class="span4 offset4">
+        <div class="note new-note">
+            <input class="title" name="title" type="text" placeholder="Title..." autocomplete="off">
+            <textarea class="content" name="content" rows="1" placeholder="Type note..." autocomplete="off"></textarea>
+
+            <div class="note-footer-edit">
+                <button class="done btn btn-primary">Done</button>
+            </div>
+        </div>
+        <div id="user-notes"></div>
+        <div id="no-search-results">None of your notes matched your search.</div>
+    </div>
+</div>
+
+<div id="note-toolbar">
+    <div class="btn-group-vertical">
+        <a class="note-archive btn btn-mini" href="#" data-toggle="tooltip" data-title="Archive note" data-placement="bottom"><i class="icon-inbox"></i></a>
+        <a class="note-delete btn btn-mini" href="#" data-toggle="tooltip" data-title="Delete note" data-placement="bottom"><i class="icon-remove"></i></a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra %}
+{% include "notes/_note.html" %}
+
+<script>
+    // hopefully it will protect from XSS:
+    var json = "{{notes_json|escapejs}}";
+    var bootstrapped_notes = JSON.parse(json);
+</script>
+{% endblock %}
