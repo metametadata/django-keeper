@@ -1,0 +1,26 @@
+- show git version in Heroku
+- put backbone endpoint into html
+- note image upload
+- change color button
+- highlight words on search
+- forget password
+- prettify form responsiveness on resizing
+- additional user fields, also in admin, e.g. gravatar
+- grid/list view of notes
+- oauth/facebook/google login
+
+- use LESS
+- use prefixfree or smt.
+- minify js
+- serving static files - see https://docs.djangoproject.com/en/1.2/howto/static-files/
+
+- bug - toolbar is positioned incorrectly sometimes
+- bug - toolbar stays visible after deletion sometimes
+- bug - disable focusing on the note which is not edited - e.g. with tabindex="-1"
+- bug - hovered style stays on afger note is created
+- api - it must be impossible to set user when posting new note etc.
+- api - test API with inactive users
+- TDD - for js
+- TDD - for django
+- api - generate API docs - e.g. tastytools
+* make it degradate with js turned off gracefully
