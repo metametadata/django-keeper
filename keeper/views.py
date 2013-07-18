@@ -1,7 +1,5 @@
 from django.contrib.auth import login as auth_login, authenticate
-from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_POST
 
@@ -27,7 +25,7 @@ def login(request):
 
     _perform_login(request, form.get_user(), request.POST.get("remember_me", None))
 
-    return HttpResponseRedirect(reverse("home"))
+    return redirect("home")
 
 
 @require_POST
@@ -42,14 +40,14 @@ def register(request):
     form.save()
 
     user = authenticate(username=username, password=password)
-    
+
     _perform_login(request, user, request.POST.get("remember_me", None))
 
-    return HttpResponseRedirect(reverse("home"))
+    return redirect("home")
+
 
 def _perform_login(request, user, remember):
     if not remember:
         request.session.set_expiry(0)
 
     auth_login(request, user)
-
