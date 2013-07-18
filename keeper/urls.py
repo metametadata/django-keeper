@@ -13,5 +13,4 @@ urlpatterns = patterns('',
                        url(r'^notes/', include("notes.urls", namespace="notes")),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
-                       (r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
                        )
