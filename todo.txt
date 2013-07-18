@@ -1,3 +1,5 @@
+- use redirect() shortcut
+- is checking for inactive user really needed in view?
 - show git version in Heroku
 - put backbone endpoint into html
 - note image upload
@@ -12,7 +14,6 @@
 - use LESS
 - use prefixfree or smt.
 - minify js
-- serving static files - see https://docs.djangoproject.com/en/1.2/howto/static-files/
 
 - bug - toolbar is positioned incorrectly sometimes
 - bug - toolbar stays visible after deletion sometimes
