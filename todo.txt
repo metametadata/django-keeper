@@ -1,3 +1,5 @@
+. testing feature branching
+
 - is checking for inactive user really needed in view?
 - show git version in Heroku
 - put backbone endpoint into html
