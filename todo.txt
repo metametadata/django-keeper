@@ -1,4 +1,6 @@
-. string added in testfeature2
+
++ testing feature branching......
++ master commit test
 
 - is checking for inactive user really needed in view?
 - show git version in Heroku
